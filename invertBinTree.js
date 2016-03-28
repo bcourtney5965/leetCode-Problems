@@ -1,0 +1,40 @@
+// i: input
+// o: ouput
+// c: constraints
+
+// * notes to Zack or myself
+
+// PSEUDO CODE
+// var invertTree = function(root) {
+		// initialize temp variable
+		// if there is both left & right branches
+			// set temp to the left
+			// set right equal to the left
+			// set temp equal to the left
+		// if only left is defined
+			// set right equal to left
+			// set left equal to null
+		// if only right is defined
+			// set left equal to right
+			// set right equal to null
+		// invoke invertTree on this.left
+		// invoke invertTree on this.right
+// };
+
+
+// CODE
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var invertTree = function(root) {
+    
+};
