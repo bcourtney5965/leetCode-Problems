@@ -21,7 +21,6 @@
 		// invoke invertTree on this.right
 // };
 
-
 // CODE
 
 /**
@@ -35,122 +34,30 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function(root) {
-    
-};
-
-
-var BinarySearchTree = function(value) {
-  var output = {};
-  output.value = value;
-  output.left = undefined;
-  output.right = undefined;
-  extend(output, methods);
-
-  return output;
-};
-
-var extend = function(to, from) {
-  for (var key in from) {
-    to[key] = from[key];
-  }
-};
-
-var methods = {
-
-  'insert': function(item) {
-    var innerClosure = function(next) {
-      if (item < next.value) {
-        if (!next.left) {
-          next.left = BinarySearchTree(item);
-        }
-        if (next.left.value) {
-          innerClosure(next.left);
-        }
-      }
-      if (item > next.value) {
-        if (!next.right) {
-          next.right = BinarySearchTree(item);
-        }
-        if (next.right.value) {
-          innerClosure(next.right);
-        }
-
-      }
-    };
-    innerClosure(this);
-  },
-
-  'contains': function(target) {
-    var returnVal;
-    var finder = function(node) {
-      if (node.value === target) {
-        returnVal = true;
-      }
-      if (target > node.value && node.right) {
-        finder(node.right);
-      }
-      if (target < node.value && node.left) {
-        finder(node.left);
-      }
-    };
-    finder(this);
-    returnVal = returnVal || false;
-    return returnVal;
-  },
-
-  'depthFirstLog': function(callback) {
-    var execute = function(node) {
-      callback(node.value);
-      if (node.left) {
-        execute(node.left);
-      }
-      if (node.right) {
-        execute(node.right);
-      }
-    };
-    execute(this);
-  }
-};
-
-
-var myTree = BinarySearchTree(4)
-myTree.insert(7);
-myTree.insert(2)
-myTree.insert(1);
-// console.log(myTree);
 
 var invertTree = function(root) {
-	var rootNode = root;
 	var solver = function(node) {
 		// if no braches
-		if ((node.left === undefined) && (node.right === undefined)) {
+		if (node.left === null && node.right === null) {
 			// return
 			return;
-		}
-		// else
-		else {
+		} else {
 			// 	switch branches
 			var temp = node.left
 			node.left = node.right;
 			node.right = temp;
 			// 	if left is defined solver(left)
-			if (node.left !== undefined) {
+			if (node.left !== null) {
 				solver(node.left);
 			}
 			// 	if.right if defined solver(right)
-			if (node.right !== undefined) {
+			if (node.right !== null) {
 				solver(node.right);
 			}
 		}
 	};
 	solver(root);
-	return rootNode;
+	return root;
 }
 console.log(invertTree(myTree));
-
-// console.log(myTree);
-
-
-
 
