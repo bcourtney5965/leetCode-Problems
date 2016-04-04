@@ -16,11 +16,11 @@
 
 // PSEUDO CODE
 // Initialize function with array parameter
-	// iterate over array
-		// if element is a zero
-			// remove the element (consider splice)
-			// add a 0 onto the end
-	// end iteration
+  // iterate over array
+    // if element is a zero
+      // remove the element (consider splice)
+      // add a 0 onto the end
+  // end iteration
 
 
 // CODE
@@ -30,15 +30,15 @@
  */
  // Initialize function with array parameter
 var moveZeroes = function(nums) {
-	// iterate over array
-	nums.forEach(function(value, index, array) {
-		// if element is a zero
-		if (value === 0) {
-			// splice out the element
-			nums.splice(index, 1);
-			// push a 0 onto the end
-			array.push(0);
-		}
-	// end iteration
-	});
+  // iterate over array
+  nums.forEach(function(value, index, array) {
+    // if element is a zero
+    if (value === 0) {
+      // splice out the element
+      nums.splice(index, 1);
+      // push a 0 onto the end
+      array.push(0);
+    }
+  // end iteration
+  });
 };
