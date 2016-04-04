@@ -4,8 +4,16 @@
 
 // * notes to Zack or myself
 
+// Instructions
+
+
+
+
 // PSEUDO CODE
 
 
-// CODE
 
+
+
+
+// CODE
