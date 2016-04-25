@@ -13,37 +13,64 @@
 // s = "rat", t = "car", return false.
 
 // PSEUDO CODE
-// instantiate function
-  // declare length vars for s and t
-  // declare sObj and tObj
-  // determine length of s
-  // determine length of t
-  // if length of s not equal to length of t
-    // return false
-  // split s into array
-  // split t into array
-  // loop over s
-    // for each element if it's not in sObj
-      // make it and set to 0
-      // else
-        // increment it
-
+// initialize function
+  // declare sLength, tLength vars
+  // declare sArr & tArr arrays with .split('')
+  // declare sObj, tObj
+  // if sLength % tLength not equal
+  // loop over one array
+    // delare a variable and set current elem to it
+    // if elem isn't already in the object
+      // make it/set to 0
+    // increment element
+  // loop over second array
+    // delare a variable and set current elem to it
+    // if elem isn't already in the object
+      // make it/set to 0
+    // increment element
+  // loop of obj
+    // if both objects don't share the same key and the smae corresponding value
+      // return false
+  // loop of obj
+    // if both objects don't share the same key and the smae corresponding value
+      // return false
+  //return true
 
 
 
 // CODE
 var isAnagram = function(s, t) {
-    var sLength, tLength;
-    var sArr = s.split('');
-    var tArr = s.split('');
-    var sObj = {}, tObj = {};
-    sLength = s.length;
-    tLength = t.length;
-    if (sLength !== tLength) {
+  var sLength = s.length, tLength = t.length;
+  var sArr = s.split('');
+  var tArr = t.split('');
+  var sObj = {}, tObj = {};
+  if (sLength !== tLength) {
+    return false;
+  }
+  for (var i = 0; i < sArr.length; i++) {
+    var letter = sArr[i];
+    if (!sObj[letter]) {
+      sObj[letter] = 0;
+    }
+    sObj[letter]++;
+  }
+  for (var j = 0; j < tArr.length; j++) {
+    var letter = tArr[j];
+    if (!tObj[letter]) {
+      tObj[letter] = 0;
+    }
+    tObj[letter]++;
+  }
+  for (var key in tObj) {
+    if (tObj[key] !== sObj[key]) {
       return false;
     }
-
-    
-
-
+  }
+  for (var key in sObj) {
+    if (sObj[key] !== tObj[key]) {
+      return false;
+    }
+  }
+  return true;
 };
+
